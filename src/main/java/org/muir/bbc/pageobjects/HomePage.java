@@ -13,7 +13,7 @@ import org.testng.Assert;
  */
 public class HomePage extends BasePage {
 
-    private static final By idctaLinkLocator = By.id( "idcta-link" );
+    private static final By IDCTA_LINK_LOCATOR = By.id( "idcta-link" );
 
     public HomePage( WebDriver driver ) {
         this.driver = driver;
@@ -22,12 +22,12 @@ public class HomePage extends BasePage {
 
     @Override
     public boolean isOpen() {
-        List<WebElement> elements = driver.findElements( idctaLinkLocator );
+        List<WebElement> elements = driver.findElements( IDCTA_LINK_LOCATOR );
         return !elements.isEmpty();
     }
 
     public SignInPage1 clickIDCTALink() {
-        WebElement idctaLinkElement = driver.findElement( idctaLinkLocator );
+        WebElement idctaLinkElement = driver.findElement( IDCTA_LINK_LOCATOR );
         idctaLinkElement.click();
         return new SignInPage1( driver );
     }

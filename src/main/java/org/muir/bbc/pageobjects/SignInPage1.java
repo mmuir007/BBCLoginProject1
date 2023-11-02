@@ -13,9 +13,9 @@ import java.util.List;
  */
 public class SignInPage1 extends BasePage {
 
-    private static final By userIdLocator = By.id( "user-identifier-input" );
+    private static final By USER_ID_LOCATOR = By.id( "user-identifier-input" );
 
-    private static final By submitLocator = By.id( "submit-button" );
+    private static final By SUBMIT_LOCATOR = By.id( "submit-button" );
 
     public SignInPage1( WebDriver driver ) {
         this.driver = driver;
@@ -24,19 +24,19 @@ public class SignInPage1 extends BasePage {
 
     @Override
     public boolean isOpen() {
-        List<WebElement> userIdElements = driver.findElements( userIdLocator );
-        List<WebElement> submitElements = driver.findElements( submitLocator );
+        List<WebElement> userIdElements = driver.findElements( USER_ID_LOCATOR );
+        List<WebElement> submitElements = driver.findElements( SUBMIT_LOCATOR );
         return !userIdElements.isEmpty() && !submitElements.isEmpty();
     }
 
     public SignInPage1 setEmailAddress( String emailAddress ) {
-        WebElement emailAddressElement = driver.findElement( userIdLocator );
+        WebElement emailAddressElement = driver.findElement( USER_ID_LOCATOR );
         emailAddressElement.sendKeys( emailAddress );
         return this;
     }
 
     public SignInPage2 clickSubmitButton() {
-        WebElement submitElement = driver.findElement( submitLocator );
+        WebElement submitElement = driver.findElement( SUBMIT_LOCATOR );
         submitElement.click();
         return new SignInPage2( driver );
     }
