@@ -7,6 +7,11 @@ import org.testng.Assert;
 
 import java.util.List;
 
+/**
+ * This page object will parse the Home Page when the user is logged in.
+ * When the user is logged in, the first character of the email address
+ * is displayed (capitalized).
+ */
 public class LoggedInPage extends BasePage {
 
     private static final By idctaLinkLocator = By.id( "idcta-link" );

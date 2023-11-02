@@ -7,6 +7,10 @@ import org.testng.Assert;
 
 import java.util.List;
 
+/**
+ * This page object parses the second Sign In page, i.e.,
+ * the one that accepts the user's password.
+ */
 public class SignInPage2 extends BasePage {
 
     private static final By passwordLocator = By.id( "password-input" );
