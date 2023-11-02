@@ -17,6 +17,9 @@ public class SignInPage2 extends BasePage {
 
     private static final By submitLocator = By.id( "submit-button" );
 
+    private static final By errorLocator =
+            By.xpath( "//div[@id='form-message-general']/p/span/span" );
+
     public SignInPage2( WebDriver driver ) {
         this.driver = driver;
         Assert.assertTrue( isOpen(), "SignInPage2 IS NOT OPEN" );
@@ -35,9 +38,14 @@ public class SignInPage2 extends BasePage {
         return this;
     }
 
-    public LoggedInPage clickSubmitButton() {
+    public void clickSubmitButton() {
         WebElement submitElement = driver.findElement( submitLocator );
         submitElement.click();
-        return new LoggedInPage( driver );
+    }
+
+    public boolean hasErrorMessage( String expectedErrorText ) {
+        var errorElement = driver.findElement( errorLocator );
+        var actualErrorText = errorElement.getText();
+        return actualErrorText.contains( expectedErrorText );
     }
 }
