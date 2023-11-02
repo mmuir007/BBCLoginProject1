@@ -1,4 +1,4 @@
-package orb.muir.bbc.tests;
+package org.muir.bbc.tests;
 
 import org.muir.bbc.pageobjects.HomePage;
 import org.muir.bbc.pageobjects.SignInPage2;

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class LoggedInPage extends BasePage {
 
-    private static final By idctaLinkLocator = By.id( "idcta-link" );
+    private static final By IDCTA_LINK_LOCATOR = By.id( "idcta-link" );
 
     public LoggedInPage( WebDriver driver ) {
         this.driver = driver;
@@ -23,13 +23,19 @@ public class LoggedInPage extends BasePage {
 
     @Override
     public boolean isOpen() {
-        List<WebElement> elements = driver.findElements( idctaLinkLocator );
+        List<WebElement> elements = driver.findElements( IDCTA_LINK_LOCATOR );
         return !elements.isEmpty();
     }
 
     public boolean idctaLinkHasInitial( String expectedInitial ) {
-        WebElement idctaLinkElement = driver.findElement( idctaLinkLocator );
+        WebElement idctaLinkElement = driver.findElement( IDCTA_LINK_LOCATOR );
         var actualInitial = idctaLinkElement.getAttribute("userinitial" );
         return expectedInitial.equals( actualInitial );
+    }
+
+    public YourAccountPage clickIDCTALink() {
+        WebElement idctaLinkElement = driver.findElement( IDCTA_LINK_LOCATOR );
+        idctaLinkElement.click();
+        return new YourAccountPage( driver );
     }
 }
